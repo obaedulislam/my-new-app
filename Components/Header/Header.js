@@ -1,12 +1,8 @@
 import { HiMenuAlt1 } from "react-icons/hi";
 import { BiLogIn } from "react-icons/bi";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
-import { signOut } from "next-auth/react";
 
 const Header = () => {
-  const { data: session } = useSession();
-
   const menuItems = (
     <>
       <li>
@@ -28,23 +24,12 @@ const Header = () => {
         </Link>
       </li>
       <li>
-        {session?.user ? (
-          <>
-            <Link href="/" onClick={() => signOut()}>
-              <button className=" focus:outline-none bg-gradient-to-tl from-primary to-accent rounded  sm:px-3 px-2 md:mt-0 mt-2 py-1  text-white flex items-center">
-                <BiLogIn className="text-xl "></BiLogIn>
-                <span className="  ml-1">Log Out</span>
-              </button>
-            </Link>
-          </>
-        ) : (
-          <Link href="/login">
-            <button className=" focus:outline-none bg-gradient-to-tl from-primary to-accent rounded  sm:px-3 px-2 md:mt-0 mt-2 py-1  text-white flex items-center">
-              <BiLogIn className="text-xl "></BiLogIn>
-              <span className="  ml-1">Login</span>
-            </button>
-          </Link>
-        )}
+        <Link href="/login">
+          <button className=" focus:outline-none bg-gradient-to-tl from-primary to-accent rounded  sm:px-3 px-2 md:mt-0 mt-2 py-1  text-white flex items-center">
+            <BiLogIn className="text-xl "></BiLogIn>
+            <span className="  ml-1">Login</span>
+          </button>
+        </Link>
       </li>
     </>
   );
