@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,7 +38,6 @@ export default function Home() {
               </div>
               <div className=" hidden lg:flex md:flex">
                 <ul className="lg-menu menu-horizontal flex items-center p-0 font-semibold   text-primary space-x-5">
-                  <List />
                   <button className="btn btn-primary">test</button>
                 </ul>
               </div>
